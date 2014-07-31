@@ -1,0 +1,12 @@
+application_name = Automated RAR Archiver
+application_excutable = Automated RAR Archiver.exe
+application_icon = Application_Icon.ico
+application_splashimage = splash_image.jpg
+application_netmajorversion = 1
+application_netminorversion = 0
+application_buildnumber = 4323
+application_colour = 000000
+application_forecolour = FFFFFF
+application_colour = 000000
+application_forecolour = FFFFFF
+application_download = http://www.commerce.uct.ac.za/Commerce_IT/Support/Utilities/Files/DotNetFramework/dotnetfx.exe

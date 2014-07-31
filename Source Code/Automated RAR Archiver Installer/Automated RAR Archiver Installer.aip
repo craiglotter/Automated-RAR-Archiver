@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DOCUMENT type="Advanced Installer" version="1.9" modules="professional" RootPath=".">
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
+    <ROW Property="CTRLS" Value="3"/>
+    <ROW Property="RUNAPPLICATION" Value="1"/>
+    <ROW Property="VIEWREADME" Value="1"/>
+    <ROW Property="ProductName" Value="Automated RAR Archiver"/>
+    <ROW Property="ALLUSERS" Value="2"/>
+    <ROW Property="BannerBitmap" Value="installer_background.jpg"/>
+    <ROW Property="ProductVersion" Value="1.0.0"/>
+    <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
+    <ROW Property="UpgradeCode" Value="{EC6A92C9-BC32-4D87-8D77-96FEBE156079}"/>
+    <ROW Property="ProductCode" Value="{F4913EB1-37B6-4047-B01B-E9E302487480}"/>
+    <ROW Property="ARPPRODUCTICON" Value="controlPanelIcon.exe"/>
+    <ROW Property="DialogBitmap" Value="installer_background_dialog.jpg"/>
+    <ROW Property="Manufacturer" Value="CodeUnit"/>
+    <ROW Property="ProductLanguage" Value="1033"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiDirsComponent">
+    <ROW Directory="Inputs_DIR" Directory_Parent="TARGETDIR" DefaultDir="Inputs"/>
+    <ROW Directory="SHORTCUTDIR" Directory_Parent="TARGETDIR" DefaultDir="SHORTC~1|SHORTCUTDIR" IsPseudoRoot="1"/>
+    <ROW Directory="StartupFolder" Directory_Parent="TARGETDIR" DefaultDir="Startu~1|StartupFolder" IsPseudoRoot="1"/>
+    <ROW Directory="TARGETDIR" Directory_Parent="" DefaultDir="SourceDir"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
+    <ROW Component="Application_Loader.exe" ComponentId="{9716914D-B94F-4853-A7E6-AC9D58046E9A}" Directory_="TARGETDIR" Attributes="0" Condition="" KeyPath="Application_Loader.exe" FullKeyPath="TARGETDIR\Application_Loader.exe"/>
+    <ROW Component="Description.txt" ComponentId="{7FBE7751-56FC-4AB4-B47B-D67F3940C94D}" Directory_="TARGETDIR" Attributes="0" Condition="" KeyPath="Description.txt" FullKeyPath="TARGETDIR"/>
+    <ROW Component="Application_Icon.ico" ComponentId="{F392EAB8-D30A-4434-B136-5A26DA93D692}" Directory_="Inputs_DIR" Attributes="0" Condition="" KeyPath="Splash_Image.jpg" FullKeyPath="TARGETDIR\Inputs"/>
+    <ROW Component="Automated_RAR_Archiver.exe" ComponentId="{866F206D-E244-490C-AD4C-EDB2DCD80E0D}" Directory_="TARGETDIR" Attributes="0" Condition="" KeyPath="Automated_RAR_Archiver.exe" FullKeyPath="TARGETDIR\Automated RAR Archiver.exe"/>
+    <ROW Component="Rar.exe" ComponentId="{B339AE12-3DEF-451D-94AE-39E373CBFEAC}" Directory_="TARGETDIR" Attributes="0" Condition="" KeyPath="Rar.exe" FullKeyPath="TARGETDIR\Rar.exe"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatsComponent">
+    <ROW Feature="MainFeature" Feature_Parent="" Title="MainFeature" Description="Description" Display="2" Level="1" Directory_="TARGETDIR" Attributes="0" Components="Application_Loader.exe Automated_RAR_Archiver.exe Description.txt Application_Icon.ico Rar.exe"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFilesComponent">
+    <ROW File="Application_Loader.exe" Component_="Application_Loader.exe" FileName="Applic~1.exe|Application_Loader.exe" Version="" Language="" Attributes="" SourcePath="..\Automated RAR Archiver\Required Files\Application_Loader.exe" SelfReg="false"/>
+    <ROW File="Description.txt" Component_="Description.txt" FileName="Descri~1.txt|Description.txt" Version="" Language="" Attributes="" SourcePath="..\Automated RAR Archiver\Required Files\Description.txt" SelfReg="false"/>
+    <ROW File="Splash_Image.jpg" Component_="Application_Icon.ico" FileName="Splash~1.jpg|Splash_Image.jpg" Version="" Language="" Attributes="" SourcePath="..\Automated RAR Archiver\Required Files\Inputs\Splash_Image.jpg" SelfReg="false"/>
+    <ROW File="Automated_RAR_Archiver.exe" Component_="Automated_RAR_Archiver.exe" FileName="Automa~1.exe|Automated RAR Archiver.exe" Version="" Language="" Attributes="" SourcePath="..\Automated RAR Archiver\Required Files\Automated RAR Archiver.exe" SelfReg="false"/>
+    <ROW File="Inputs.txt" Component_="Application_Icon.ico" FileName="Inputs.txt" Version="" Language="" Attributes="" SourcePath="..\Automated RAR Archiver\Required Files\Inputs\Inputs.txt" SelfReg="false"/>
+    <ROW File="Preview_Image.jpg" Component_="Description.txt" FileName="Previe~1.jpg|Preview_Image.jpg" Version="" Language="" Attributes="" SourcePath="..\Automated RAR Archiver\Required Files\Preview_Image.jpg" SelfReg="false"/>
+    <ROW File="Rar.exe" Component_="Rar.exe" FileName="Rar.exe" Version="" Language="" Attributes="" SourcePath="..\Automated RAR Archiver\Required Files\Rar.exe" SelfReg="false"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCustActComponent">
+    <ROW Action="AI_DOWNGRADE" Type="19" Source="" Target="A higher version of [ProductName] is installed."/>
+    <ROW Action="AI_ViewReadme" Type="194" Source="viewer.exe" Target="[#Description.txt]"/>
+    <ROW Action="SET_SHORTCUTDIR" Type="307" Source="SHORTCUTDIR" Target="[ProgramMenuFolder][Manufacturer]\[ProductName]"/>
+    <ROW Action="AI_LaunchApp" Type="194" Source="viewer.exe" Target="[#Application_Loader.exe]"/>
+    <ROW Action="SET_TARGETDIR" Type="307" Source="TARGETDIR" Target="[ProgramFilesFolder][Manufacturer]\[ProductName]"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiUpgradeComponent">
+    <ROW UpgradeCode="UpgradeCode" VersionMin="" VersionMax="ProductVersion" Language="" Attributes="1025" Remove=""/>
+    <ROW UpgradeCode="UpgradeCode" VersionMin="ProductVersion" VersionMax="" Language="" Attributes="2" Remove=""/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiMergeModsComponent">
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiShortsComponent">
+    <ROW Shortcut="Automated_RAR_Archiver" Directory_="SHORTCUTDIR" Name="Automa~1|Automated RAR Archiver" Component_="Application_Loader.exe" Target="[TARGETDIR]Application_Loader.exe" Arguments="" Description="" Hotkey="0" Icon_="controlPanelIcon.exe" IconIndex="0" ShowCmd="1" WkDir=""/>
+    <ROW Shortcut="Automated_RAR_Archiver_1" Directory_="StartupFolder" Name="Automa~1|Automated RAR Archiver" Component_="Application_Loader.exe" Target="[TARGETDIR]Application_Loader.exe" Arguments="" Description="" Hotkey="0" Icon_="controlPanelIcon.exe" IconIndex="0" ShowCmd="1" WkDir=""/>
+    <ROW Shortcut="Uninstall_Automated_RAR_Archiver" Directory_="SHORTCUTDIR" Name="Uninst~1|Uninstall Automated RAR Archiver" Component_="Application_Loader.exe" Target="[SystemFolder]msiexec.exe" Arguments="/x [ProductCode]" Description="" Hotkey="0" Icon_="SystemFolder_msiexec.exe" IconIndex="0" ShowCmd="1" WkDir=""/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
+    <ROW Name="SystemFolder_msiexec.exe" SourcePath="&lt;uninstall.ico&gt;" Index="0"/>
+    <ROW Name="controlPanelIcon.exe" SourcePath="Images\Application_Icon.ico" Index="0"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstExSeqComponent">
+    <ROW Action="AI_DOWNGRADE" Condition="AI_NEWERPRODUCTFOUND AND (UILevel &lt;&gt; 5)" Sequence="210"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiBinaryComponent">
+    <ROW Name="installer_background.jpg" SourcePath="Images\installer_background.jpg"/>
+    <ROW Name="installer_background_dialog.jpg" SourcePath="Images\installer_background_dialog.jpg"/>
+    <ROW Name="viewer.exe" SourcePath="&lt;viewer.exe&gt;"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstallUISequenceComponent">
+    <ATTRIBUTE name="Start" value="WelcomeDlg FolderDlg VerifyReadyDlg"/>
+    <ATTRIBUTE name="Progress" value="ProgressDlg"/>
+    <ATTRIBUTE name="End" value="ExitDialog"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.PreReqComponent">
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiMediaComponent">
+    <ATTRIBUTE name="InstallationType" value="1"/>
+    <ATTRIBUTE name="MediaSize" value="0"/>
+    <ATTRIBUTE name="Compress" value="1"/>
+    <ATTRIBUTE name="Package" value="10"/>
+    <ATTRIBUTE name="PackageName" value="Release\Automated RAR Archiver Installer"/>
+    <ATTRIBUTE name="IconPath" value="Images\Application_Icon.ico?0"/>
+  </COMPONENT>
+</DOCUMENT>
